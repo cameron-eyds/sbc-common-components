@@ -1,11 +1,11 @@
 import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators'
+import { SessionStorageKeys, Account, LoginSource } from '../../util/constants'
 import AccountService from '../../services/account.services'
 import { Member } from '../../models/member'
 import { UserSettings } from '../../models/userSettings'
 import { KCUserProfile } from '../../models/KCUserProfile'
 import KeyCloakService from '../../services/keycloak.services'
 import ConfigHelper from '../../util/config-helper'
-import { SessionStorageKeys } from '../../util/constants'
 
 @Module({
   name: 'account',
@@ -22,8 +22,12 @@ export default class AccountModule extends VuexModule {
     return this.currentAccount && this.currentAccount.label
   }
 
+  get loginSource (): string {
+    return ConfigHelper.getFromSession(SessionStorageKeys.UserAccountType) || LoginSource.BCSC
+  }
+
   get accountType (): string {
-    return ConfigHelper.getFromSession(SessionStorageKeys.UserAccountType) || 'BCSC'
+    return this.currentAccount.accountType || Account.ANONYMOUS
   }
 
   get switchableAccounts () {
@@ -72,7 +76,7 @@ export default class AccountModule extends VuexModule {
     if (response && response.data) {
       const orgs = response.data.filter(userSettings => (userSettings.type === 'ACCOUNT'))
       this.context.commit('setCurrentAccount', currentAccountId ? orgs.find(org => String(org.id) === currentAccountId) : orgs[0])
-      if (this.currentUser?.loginSource === 'BCSC') {
+      if (this.currentUser?.loginSource === LoginSource.BCSC) {
         await this.context.dispatch('fetchPendingApprovalCount')
       }
       return orgs
@@ -106,11 +110,11 @@ export default class AccountModule extends VuexModule {
       return orgIdFromUrl || String(storageAccountId || '') || ''
     }
 
-    switch (this.accountType) {
-      case 'IDIR':
+    switch (this.loginSource) {
+      case LoginSource.IDIR:
         break
-      case 'BCSC':
-      case 'BCROS':
+      case LoginSource.BCSC:
+      case LoginSource.BCROS:
       default:
         const lastUsedAccount = getLastAccountId()
         if (ConfigHelper.getFromSession(SessionStorageKeys.UserKcId)) {

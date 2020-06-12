@@ -11,3 +11,15 @@ export enum SessionStorageKeys {
   CurrentAccount = 'CURRENT_ACCOUNT',
   AuthApiUrl = 'AUTH_API_URL'
 }
+
+export enum Account {
+  ANONYMOUS = 'ANONYMOUS',
+  PREMIUM = 'PREMIUM',
+  BASIC = 'BASIC',
+}
+
+export enum LoginSource {
+  BCROS = 'BCROS',
+  IDIR = 'IDIR',
+  BCSC = 'BCSC'
+}
