@@ -188,7 +188,7 @@ section + section {
 .app-header {
   z-index: 2;
   position: sticky;
-  position: -webkit-sticky; //Safari
+  position: -webkit-sticky;
   top: 0;
   width: 100%;
   height: 70px;
