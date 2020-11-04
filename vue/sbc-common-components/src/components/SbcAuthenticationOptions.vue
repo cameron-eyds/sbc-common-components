@@ -1,7 +1,14 @@
 <template>
   <v-container class="view-container">
     <div class="view-header flex-column mb-9">
-      <h1 class="view-header__title">Log in to BC Registries</h1>
+      <v-row>
+        <v-col cols="11">
+          <h1 class="view-header__title">Log in to BC Registries</h1>
+        </v-col>
+        <v-col cols="1">
+          <v-icon large color="primary" @click="emitClose()">mdi-close</v-icon>
+        </v-col>
+      </v-row>
       <p class="mt-4 mb-0">
         Don't have a BC Registries account? <a class="text-decoration-underline" @click="goToCreateAccount">Create an account</a>
       </p>
@@ -20,6 +27,7 @@
           hover
           class="account-card text-center pa-10 elevation-2 d-flex"
           @click="selectAuthType(authOption)"
+          :ripple="false"
         >
           <div class="account-type d-flex flex-column">
             <div class="account-type__icon mb-8">
@@ -51,7 +59,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Prop, Emit } from 'vue-property-decorator'
 import { IdpHint, LoginSource, Pages } from '../util/constants'
 import NavigationMixin from '../mixins/navigation-mixin'
 
@@ -64,8 +72,8 @@ export default class SbcAuthenticationOptions extends NavigationMixin {
     {
       type: LoginSource.BCSC,
       title: 'BC Services Card',
-      description: `Residents of British Columbia can use their government-issued 
-                    BC Services Card to securly access BC Registries.`,
+      description: `Residents of British Columbia can use their government-issued
+                  BC Services Card to securely access their BC Registries account.`,
       icon: 'mdi-account-card-details-outline',
       btnLabel: 'Log in with BC Services Card',
       idpHint: IdpHint.BCSC
@@ -73,8 +81,8 @@ export default class SbcAuthenticationOptions extends NavigationMixin {
     {
       type: LoginSource.BCEID,
       title: 'BCeID',
-      description: `Non-BC residents and residents do not have a BC Services Card 
-                    can use a BCeID account to securly access BC Registries.`,
+      description: `Non-BC residents and BC residents do not have a BC Services Card
+                  can use a BCeID to securely access their BC Registries account.`,
       icon: 'mdi-two-factor-authentication',
       btnLabel: 'Log in with BCeID',
       idpHint: IdpHint.BCEID
@@ -92,12 +100,17 @@ export default class SbcAuthenticationOptions extends NavigationMixin {
   private goToCreateAccount () {
     this.redirectToPath(this.inAuth, Pages.CHOOSE_AUTH_METHOD)
   }
+
+  /**
+   * Emits an event to the parent to close.
+   */
+  @Emit('close')
+  private emitClose (): void {}
 }
 </script>
 
 <style lang="scss" scoped>
   .view-container {
-    max-width: 60rem;
   }
 
   .account-card {
@@ -105,13 +118,10 @@ export default class SbcAuthenticationOptions extends NavigationMixin {
     flex-direction: column;
     position: relative;
     transition: all ease-out 0.2s;
+    min-width: 350px;
 
     &:hover {
       border-color: var(--v-primary-base) !important;
-
-      .v-icon {
-        color: var(--v-primary-base) !important;
-      }
     }
   }
 
@@ -120,7 +130,7 @@ export default class SbcAuthenticationOptions extends NavigationMixin {
   }
 
   .account-card .v-icon {
-    color: var(--v-grey-lighten1) !important;
+    color: var(--v-primary-base) !important;
     font-size: 3rem !important;
   }
 
