@@ -1,10 +1,28 @@
 <template>
   <v-container class="view-container">
     <div class="view-header flex-column mb-9">
-      <h1 class="view-header__title">Log in to BC Registries</h1>
-      <p class="mt-4 mb-0">
-        Don't have a BC Registries account? <a class="text-decoration-underline" @click="goToCreateAccount">Create an account</a>
-      </p>
+      <template v-if="isDialog">
+        <v-row>
+          <v-col cols="11">
+            <h3>Log in to BC Registries</h3>
+          </v-col>
+          <v-col cols="1">
+            <v-icon large color="primary" @click="emitClose()">mdi-close</v-icon>
+          </v-col>
+        </v-row>
+        <p>
+          Don't have a BC Registries account?
+          <a @click="goToCreateAccount">
+            <u>Create an account</u>
+          </a>
+        </p>
+      </template>
+      <template v-else>
+        <h1 class="view-header__title">Log in to BC Registries</h1>
+        <p class="mt-4 mb-0">
+          Don't have a BC Registries account? <a class="text-decoration-underline" @click="goToCreateAccount">Create an account</a>
+        </p>
+      </template>
     </div>
     <v-row>
       <v-col
@@ -51,21 +69,22 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Prop, Emit } from 'vue-property-decorator'
 import { IdpHint, LoginSource, Pages } from '../util/constants'
 import NavigationMixin from '../mixins/navigation-mixin'
 
 @Component({})
 export default class SbcAuthenticationOptions extends NavigationMixin {
   @Prop({ default: '' }) redirectUrl!: string
-  @Prop({ default: false }) inAuth!: boolean;
+  @Prop({ default: false }) inAuth!: boolean
+  @Prop({ default: false }) isDialog!: boolean
 
   private authOptions = [
     {
       type: LoginSource.BCSC,
       title: 'BC Services Card',
-      description: `Residents of British Columbia can use their government-issued 
-                    BC Services Card to securly access BC Registries.`,
+      description: `Residents of British Columbia can use their government-issued
+                BC Services Card to securly access BC Registries.`,
       icon: 'mdi-account-card-details-outline',
       btnLabel: 'Log in with BC Services Card',
       idpHint: IdpHint.BCSC
@@ -73,8 +92,8 @@ export default class SbcAuthenticationOptions extends NavigationMixin {
     {
       type: LoginSource.BCEID,
       title: 'BCeID',
-      description: `Non-BC residents and residents do not have a BC Services Card 
-                    can use a BCeID account to securly access BC Registries.`,
+      description: `Non-BC residents and residents do not have a BC Services Card
+                can use a BCeID account to securly access BC Registries.`,
       icon: 'mdi-two-factor-authentication',
       btnLabel: 'Log in with BCeID',
       idpHint: IdpHint.BCEID
@@ -92,6 +111,12 @@ export default class SbcAuthenticationOptions extends NavigationMixin {
   private goToCreateAccount () {
     this.redirectToPath(this.inAuth, Pages.CHOOSE_AUTH_METHOD)
   }
+
+  /**
+   * Emits an event to the parent to close.
+   */
+  @Emit('close')
+  private emitClose (): void {}
 }
 </script>
 
@@ -120,7 +145,7 @@ export default class SbcAuthenticationOptions extends NavigationMixin {
   }
 
   .account-card .v-icon {
-    color: var(--v-grey-lighten1) !important;
+    color: var(--v-primary-base) !important;
     font-size: 3rem !important;
   }
 

@@ -1,66 +1,7 @@
 <template>
-  <v-dialog v-model="showModal" max-width="850px" persistent>
+  <v-dialog v-model="showModal" max-width="850px" :attach="attach" persistent>
     <v-card class="pa-4">
-      <v-container class="view-container">
-        <div class="flex-column mb-9">
-          <v-row>
-            <v-col cols="11">
-              <h3>Log in to BC Registries</h3>
-            </v-col>
-            <v-col cols="1">
-              <v-icon large color="primary" @click="emitClose()">mdi-close</v-icon>
-            </v-col>
-          </v-row>
-          <p>
-            Don't have a BC Registries account?
-            <a @click="goToCreateAccount">
-              <u>Create an account</u>
-            </a>
-          </p>
-        </div>
-        <v-row>
-          <v-col
-            sm="12"
-            md="6"
-            class="d-flex align-stretch"
-            v-for="authOption in authOptions"
-            :key="authOption.type"
-          >
-            <v-card
-              flat
-              outlined
-              hover
-              class="account-card text-center pa-10 elevation-2 d-flex"
-              @click="selectAuthType(authOption)"
-              :ripple="false"
-            >
-              <div class="account-type d-flex flex-column">
-                <div class="account-type__icon mb-8">
-                  <v-icon>{{authOption.icon}}</v-icon>
-                </div>
-                <div class="account-type__title mb-6">
-                  {{authOption.title}}
-                </div>
-                <div class="account-type__details mb-12">
-                  {{authOption.description}}
-                </div>
-                <div>
-                  <v-btn
-                    large
-                    depressed
-                    block
-                    color="primary"
-                    class="font-weight-bold"
-                    @click="selectAuthType(authOption)"
-                  >
-                    {{ authOption.btnLabel }}
-                  </v-btn>
-                </div>
-              </div>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
+      <sbc-authentication-options :is-dialog="true" :redirect-url="redirectUrl" @close="emitClose()"/>
     </v-card>
   </v-dialog>
 </template>
@@ -69,19 +10,25 @@
 import { Component, Prop, Emit } from 'vue-property-decorator'
 import { IdpHint, LoginSource, Pages } from '../util/constants'
 import NavigationMixin from '../mixins/navigation-mixin'
+import SbcAuthenticationOptions from './SbcAuthenticationOptions.vue'
 
-@Component({})
+@Component({
+  components: {
+    SbcAuthenticationOptions
+  }
+})
 export default class SbcAuthenticationOptionsDialog extends NavigationMixin {
-  @Prop({ default: false }) showModal!: boolean
-  @Prop({ default: '' }) redirectUrl!: string
   @Prop({ default: false }) inAuth!: boolean
+  @Prop({ default: false }) showModal!: boolean
+  @Prop({ default: '' }) attach!: string
+  @Prop({ default: '' }) redirectUrl!: string
 
   private authOptions = [
     {
       type: LoginSource.BCSC,
       title: 'BC Services Card',
       description: `Residents of British Columbia can use their government-issued
-              BC Services Card to securely access their BC Registries account.`,
+          BC Services Card to securely access their BC Registries account.`,
       icon: 'mdi-account-card-details-outline',
       btnLabel: 'Log in with BC Services Card',
       idpHint: IdpHint.BCSC
@@ -90,7 +37,7 @@ export default class SbcAuthenticationOptionsDialog extends NavigationMixin {
       type: LoginSource.BCEID,
       title: 'BCeID',
       description: `Non-BC residents and BC residents do not have a BC Services Card
-              can use a BCeID to securely access their BC Registries account.`,
+          can use a BCeID to securely access their BC Registries account.`,
       icon: 'mdi-two-factor-authentication',
       btnLabel: 'Log in with BCeID',
       idpHint: IdpHint.BCEID
@@ -118,6 +65,10 @@ export default class SbcAuthenticationOptionsDialog extends NavigationMixin {
 </script>
 
 <style lang="scss" scoped>
+  .v-dialog > .v-card {
+    border-radius: 4px!important;
+  }
+
   .account-card {
     display: flex;
     flex-direction: column;
