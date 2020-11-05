@@ -7,8 +7,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Emit } from 'vue-property-decorator'
-import NavigationMixin from '../mixins/navigation-mixin'
+import { Component, Prop, Emit, Vue } from 'vue-property-decorator'
 import SbcAuthenticationOptions from './SbcAuthenticationOptions.vue'
 
 @Component({
@@ -16,7 +15,7 @@ import SbcAuthenticationOptions from './SbcAuthenticationOptions.vue'
     SbcAuthenticationOptions
   }
 })
-export default class SbcAuthenticationOptionsDialog extends NavigationMixin {
+export default class SbcAuthenticationOptionsDialog extends Vue {
   @Prop({ default: false }) inAuth!: boolean
   @Prop({ default: false }) showModal!: boolean
   @Prop({ default: '' }) attach!: string
