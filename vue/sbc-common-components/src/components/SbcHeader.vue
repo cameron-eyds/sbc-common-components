@@ -14,7 +14,7 @@
         </picture>
         <span class="brand__title">BC Registries <span class="brand__title--wrap">and Online Services</span></span>
       </a>
-      <div class="app-header__actions">
+      <div v-if="!disableActions" class="app-header__actions">
 
         <!-- Product Selector -->
         <sbc-product-selector v-if="showProductSelector" />
@@ -364,6 +364,7 @@ export default class SbcHeader extends Mixins(NavigationMixin) {
   @Prop({ default: '' }) redirectOnLogout!: string;
   @Prop({ default: false }) inAuth!: boolean;
   @Prop({ default: false }) showProductSelector!: boolean;
+  @Prop({ default: false }) disableActions!: boolean;
 
   private readonly loginOptions = [
     {
