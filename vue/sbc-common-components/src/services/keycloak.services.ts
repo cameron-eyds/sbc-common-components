@@ -4,7 +4,7 @@ import { KCUserProfile } from '../../src/models/KCUserProfile'
 import ConfigHelper from '../../src/util/config-helper'
 import { SessionStorageKeys } from '../../src/util/constants'
 import { decodeKCToken } from '../../src/util/common-util'
-import { useAuthStore } from '@/store'
+import { useAuthStore } from '@sbc/store'
 
 class KeyCloakService {
   private kc: KeycloakInstance | undefined

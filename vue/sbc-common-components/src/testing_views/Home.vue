@@ -139,7 +139,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { Pages } from '@/util/constants'
+import { Pages } from '@sbc/util/constants'
 import SbcAuthMenu from '/src/components/SbcFooter.vue'
 
 export default defineComponent({

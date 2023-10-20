@@ -1,9 +1,9 @@
 /* eslint-disable */
-import ConfigHelper from '@/util/config-helper'
-import { SessionStorageKeys } from '@/util/constants'
-import KeycloakServices from '@/services/keycloak.services'
+import ConfigHelper from '@sbc/util/config-helper'
+import { SessionStorageKeys } from '@sbc/util/constants'
+import KeycloakServices from '@sbc/services/keycloak.services'
 import { defineStore } from 'pinia'
-import { AuthStateIF } from '@/interfaces'
+import { AuthStateIF } from '@sbc/interfaces'
 import { computed, reactive } from 'vue'
 
 export const useAuthStore = defineStore('auth', () => {

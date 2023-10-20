@@ -64,10 +64,10 @@
 </template>
 
 <script setup lang="ts">
-import { Notification } from '@/models/notification'
+import { Notification } from '@sbc/models/notification'
 import { computed, reactive } from 'vue'
 import 'clickout-event'
-import { useNotificationStore } from '@/store'
+import { useNotificationStore } from '@sbc/store'
 
 const props = defineProps({
   showNotifications: { default: false, type: Boolean }

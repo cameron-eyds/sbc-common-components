@@ -1,6 +1,6 @@
 import Axios from 'axios'
-import ConfigHelper from '@/util/config-helper'
-import { SessionStorageKeys } from '@/util/constants'
+import ConfigHelper from '@sbc/util/config-helper'
+import { SessionStorageKeys } from '@sbc/util/constants'
 
 const axios = Axios.create()
 

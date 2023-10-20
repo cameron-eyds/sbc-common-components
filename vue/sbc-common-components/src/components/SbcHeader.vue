@@ -372,7 +372,7 @@
 import { computed, nextTick, onMounted, watch, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
-import { UserSettings } from '@/models/userSettings'
+import { UserSettings } from '@sbc/models/userSettings'
 import LaunchDarklyService from '../../src/services/launchdarkly.services'
 import {
   ALLOWED_URIS_FOR_PENDING_ORGS, Account, IdpHint, LoginSource, Pages, Role
@@ -385,8 +385,8 @@ import {
 import BrowserVersionAlert from './BrowserVersionAlert.vue'
 import MobileDeviceAlert from './MobileDeviceAlert.vue'
 import NotificationPanel from './NotificationPanel.vue'
-import { useNavigation } from '@/composables'
-import { useAccountStore, useAuthStore, useNotificationStore } from '@/store'
+import { useNavigation } from '@sbc/composables'
+import { useAccountStore, useAuthStore, useNotificationStore } from '@sbc/store'
 
 const props = defineProps({
   redirectOnLoginSuccess: { default: '', type: String },

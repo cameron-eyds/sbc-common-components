@@ -102,9 +102,9 @@ import { useRouter } from 'vue-router' // Import useRouter from vue-router
 import SbcFooter from '/src/components/SbcFooter.vue'
 import SbcHeader from '/src/components/SbcHeader.vue'
 import SbcLoader from '/src/components/SbcLoader.vue'
-import { LDFlags, Pages, SessionStorageKeys } from '@/util/constants'
+import { LDFlags, Pages, SessionStorageKeys } from '@sbc/util/constants'
 import LaunchDarklyService from '../src/services/launchdarkly.services'
-import { useAccountStore, useAuthStore } from '@/store'
+import { useAccountStore, useAuthStore } from '@sbc/store'
 
 const accountStore = useAccountStore()
 const authStore = useAuthStore()

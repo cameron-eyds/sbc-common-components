@@ -26,7 +26,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/theme.scss';
+@import '@sbc/assets/scss/theme.scss';
 
 ::v-deep .sbc-signin-button {
   width: 100%;

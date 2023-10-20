@@ -59,7 +59,7 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
-@import '~../../src/assets/scss/theme.scss';
+@import '@sbc/assets/scss/theme.scss';
 #loginBtn {
   background-color: $BCgovBlue5 !important
 }

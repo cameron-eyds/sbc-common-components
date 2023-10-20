@@ -1,9 +1,9 @@
-import { Notifications } from '@/models/notification'
-import NotificationService from '@/services/notification.services'
-import ConfigHelper from '@/util/config-helper'
-import { SessionStorageKeys } from '@/util/constants'
+import { Notifications } from '@sbc/models/notification'
+import NotificationService from '@sbc/services/notification.services'
+import ConfigHelper from '@sbc/util/config-helper'
+import { SessionStorageKeys } from '@sbc/util/constants'
 import { defineStore } from 'pinia'
-import { NotificationStateIF } from '@/interfaces/notification-state-interface'
+import { NotificationStateIF } from '@sbc/interfaces/notification-state-interface'
 import { reactive } from 'vue'
 
 export const useNotificationStore = defineStore('notification', () => {

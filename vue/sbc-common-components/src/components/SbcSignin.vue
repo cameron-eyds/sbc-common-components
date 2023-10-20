@@ -9,7 +9,7 @@ import { KCUserProfile } from '../../src/models/KCUserProfile'
 import LoadingScreen from './LoadingScreen.vue'
 import KeyCloakService from '../../src/services/keycloak.services'
 import { useNavigation } from '../../src/composables'
-import { useAccountStore } from '@/store/account'
+import { useAccountStore } from '@sbc/store/account'
 
 const isLoading = ref(true)
 

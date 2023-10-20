@@ -1,6 +1,6 @@
-import { Products } from '@/models/product'
-import ProductService from '@/services/product.services'
-import { ProductsStateIF } from '@/interfaces/product-state-interface'
+import { Products } from '@sbc/models/product'
+import ProductService from '@sbc/services/product.services'
+import { ProductsStateIF } from '@sbc/interfaces/product-state-interface'
 import { defineStore } from 'pinia'
 import { reactive } from 'vue'
 
