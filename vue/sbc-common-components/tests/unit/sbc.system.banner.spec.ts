@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import SbcSystemBanner from '@/components/SbcSystemBanner.vue'
+import SbcSystemBanner from '@sbc/components/SbcSystemBanner.vue'
 import vuetify from './setup'
 import { it, describe, expect } from 'vitest'
 

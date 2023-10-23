@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import SbcFooter from '@/components/SbcFooter.vue'
+import SbcFooter from '@sbc/components/SbcFooter.vue'
 import vuetify from './setup'
 import { it, describe, expect } from 'vitest'
 

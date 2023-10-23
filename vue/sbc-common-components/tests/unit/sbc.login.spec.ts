@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import SbcLogin from '@/components/SbcLogin.vue'
+import SbcLogin from '@sbc/components/SbcLogin.vue'
 import vuetify, { createVueRouter } from './setup'
 import { it, describe, expect, vi, beforeEach } from 'vitest'
 import { createPinia, setActivePinia } from 'pinia'

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import BrowserVersionAlert from '@/components/BrowserVersionAlert.vue'
+import BrowserVersionAlert from '@sbc/components/BrowserVersionAlert.vue'
 import vuetify from './setup'
 import { it, describe, expect } from 'vitest'
 

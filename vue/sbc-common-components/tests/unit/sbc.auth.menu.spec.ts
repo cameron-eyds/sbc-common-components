@@ -1,5 +1,5 @@
 import { mount, VueWrapper } from '@vue/test-utils'
-import SbcAuthMenu from '@/components/SbcAuthMenu.vue'
+import SbcAuthMenu from '@sbc/components/SbcAuthMenu.vue'
 import vuetify, { createVueRouter } from './setup'
 import { createPinia, setActivePinia } from 'pinia'
 import { it, describe, expect, beforeEach } from 'vitest'

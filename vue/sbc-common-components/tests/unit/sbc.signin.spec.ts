@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils'
-import SbcSignin from '@/components/SbcSignin.vue'
+import SbcSignin from '@sbc/components/SbcSignin.vue'
 import vuetify, { createVueRouter } from './setup'
 import { it, describe, expect, beforeEach, vi } from 'vitest'
-import KeyCloakService from '@/services/keycloak.services'
+import KeyCloakService from '@sbc/services/keycloak.services'
 import { setActivePinia, createPinia } from 'pinia'
 
 setActivePinia(createPinia())
@@ -15,7 +15,7 @@ window.ResizeObserver =
       unobserve: vi.fn()
     }))
 
-vi.mock('@/services/keycloak.services')
+vi.mock('@sbc/services/keycloak.services')
 const initializeKeycloakMock = KeyCloakService.initializeKeyCloak as any
 
 describe('SbcSignin', () => {
