@@ -372,21 +372,21 @@
 import { computed, nextTick, onMounted, watch, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
-import { UserSettings } from '@/models/userSettings'
-import LaunchDarklyService from '../../src/services/launchdarkly.services'
+import { UserSettings } from '@sbc/models/userSettings'
+import LaunchDarklyService from '@sbc/services/launchdarkly.services'
 import {
   ALLOWED_URIS_FOR_PENDING_ORGS, Account, IdpHint, LoginSource, Pages, Role
-} from '../../src/util/constants'
-import { AccountStatus, LDFlags } from '../../src/util/enums'
-import ConfigHelper from '../../src/util/config-helper'
+} from '@sbc/util/constants'
+import { AccountStatus, LDFlags } from '../util/enums'
+import ConfigHelper from '@sbc/util/config-helper'
 import {
   getAccountIdFromCurrentUrl, removeAccountIdFromUrl, appendAccountId
-} from '../../src/util/common-util'
+} from '@sbc/util/common-util'
 import BrowserVersionAlert from './BrowserVersionAlert.vue'
 import MobileDeviceAlert from './MobileDeviceAlert.vue'
 import NotificationPanel from './NotificationPanel.vue'
-import { useNavigation } from '@/composables'
-import { useAccountStore, useAuthStore, useNotificationStore } from '@/store'
+import { useNavigation } from '@sbc/composables'
+import { useAccountStore, useAuthStore, useNotificationStore } from '@sbc/store'
 
 const props = defineProps({
   redirectOnLoginSuccess: { default: '', type: String },
@@ -574,9 +574,9 @@ watch(() => authStore.isAuthenticated, async (val) => {
 </script>
 
 <style lang="scss" scoped>
-@import "../../src/assets/scss/layout.scss";
-@import "../../src/assets/scss/theme.scss";
-@import "../../src/assets/scss/base.scss";
+@import "@sbc/assets/scss/layout.scss";
+@import "@sbc/assets/scss/theme.scss";
+@import "@sbc/assets/scss/base.scss";
 
 $app-header-font-color: #ffffff;
 

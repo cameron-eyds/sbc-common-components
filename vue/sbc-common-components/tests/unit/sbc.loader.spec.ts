@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import SbcLoader from '@/components/SbcLoader.vue'
+import SbcLoader from '@sbc/components/SbcLoader.vue'
 import vuetify from './setup'
 import { it, describe, expect, vi } from 'vitest'
 

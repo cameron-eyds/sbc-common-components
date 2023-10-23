@@ -1,6 +1,6 @@
-import { StatusStateIF } from '@/interfaces'
-import { ServiceStatus } from '@/models/ServiceStatus'
-import StatusService from '@/services/status.services'
+import { StatusStateIF } from '@sbc/interfaces'
+import { ServiceStatus } from '@sbc/models/ServiceStatus'
+import StatusService from '@sbc/services/status.services'
 import { defineStore } from 'pinia'
 import { reactive } from 'vue'
 

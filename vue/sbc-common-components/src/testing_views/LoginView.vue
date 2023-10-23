@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import SbcLogin from '../../src/components/SbcLogin.vue'
+import SbcLogin from '@sbc/components/SbcLogin.vue'
 
 export default defineComponent({
   components: {
@@ -26,7 +26,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/theme.scss';
+@import '@sbc/assets/scss/theme.scss';
 
 ::v-deep .sbc-signin-button {
   width: 100%;

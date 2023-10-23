@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import MobileDeviceAlert from '@/components/MobileDeviceAlert.vue'
+import MobileDeviceAlert from '@sbc/components/MobileDeviceAlert.vue'
 import vuetify from './setup'
 import { it, describe, expect } from 'vitest'
 

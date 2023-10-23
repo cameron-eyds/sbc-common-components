@@ -64,10 +64,10 @@
 </template>
 
 <script setup lang="ts">
-import { Notification } from '@/models/notification'
+import { Notification } from '@sbc/models/notification'
 import { computed, reactive } from 'vue'
 import 'clickout-event'
-import { useNotificationStore } from '@/store'
+import { useNotificationStore } from '@sbc/store'
 
 const props = defineProps({
   showNotifications: { default: false, type: Boolean }
@@ -87,7 +87,7 @@ const emitClose = (): void => {
 </script>
 
 <style lang="scss" scoped>
-@import "../../src/assets/scss/theme.scss";
+@import "@sbc/assets/scss/theme.scss";
 
 :deep(::-webkit-scrollbar) {
   width: 2px;

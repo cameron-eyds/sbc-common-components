@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 import { ref, onBeforeMount } from 'vue'
-import KeyCloakService from '../../src/services/keycloak.services'
+import KeyCloakService from '@sbc/services/keycloak.services'
 import LoadingScreen from './LoadingScreen.vue'
 
 const props = defineProps({
