@@ -1,9 +1,9 @@
 /* eslint-disable */
 import Keycloak, { KeycloakInitOptions, KeycloakInstance, KeycloakLoginOptions } from 'keycloak-js'
-import { KCUserProfile } from '../../src/models/KCUserProfile'
-import ConfigHelper from '../../src/util/config-helper'
-import { SessionStorageKeys } from '../../src/util/constants'
-import { decodeKCToken } from '../../src/util/common-util'
+import { KCUserProfile } from '@sbc/models/KCUserProfile'
+import ConfigHelper from '@sbc/util/config-helper'
+import { SessionStorageKeys } from '@sbc/util/constants'
+import { decodeKCToken } from '@sbc/util/common-util'
 import { useAuthStore } from '@sbc/store'
 
 class KeyCloakService {

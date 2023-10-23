@@ -1,5 +1,5 @@
 import { AxiosResponse } from 'axios'
-import ConfigHelper from '@sbc/util/config-helper'
+import ConfigHelper from '@/util/config-helper'
 import { axios } from '../../src/util/http-util'
 
 export default class DocumentService {

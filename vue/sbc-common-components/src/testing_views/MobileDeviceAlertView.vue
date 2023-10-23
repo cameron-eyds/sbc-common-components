@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import { onMounted, ref } from 'vue'
-import MobileDeviceAlert from '@sbc/components/MobileDeviceAlert.vue'
+import MobileDeviceAlert from '@/sbc/components/MobileDeviceAlert.vue'
 
 export default {
   name: 'MobileDeviceAlertView',

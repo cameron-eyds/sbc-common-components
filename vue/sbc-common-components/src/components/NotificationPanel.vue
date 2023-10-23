@@ -87,7 +87,7 @@ const emitClose = (): void => {
 </script>
 
 <style lang="scss" scoped>
-@import "../../src/assets/scss/theme.scss";
+@import "@sbc/assets/scss/theme.scss";
 
 :deep(::-webkit-scrollbar) {
   width: 2px;

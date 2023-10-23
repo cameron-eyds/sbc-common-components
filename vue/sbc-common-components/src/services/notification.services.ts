@@ -1,8 +1,8 @@
 /* eslint-disable no-multi-str */
 import Axios, { AxiosResponse } from 'axios'
-import ConfigHelper from '../util/config-helper'
-import { addAxiosInterceptors } from '../util/interceptors'
-import { Notifications } from '../models/notification'
+import ConfigHelper from '@sbc/util/config-helper'
+import { addAxiosInterceptors } from '@sbc/util/interceptors'
+import { Notifications } from '@sbc/models/notification'
 
 const axios = addAxiosInterceptors(Axios.create())
 

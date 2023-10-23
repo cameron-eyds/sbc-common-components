@@ -99,11 +99,11 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router' // Import useRouter from vue-router
-import SbcFooter from '/src/components/SbcFooter.vue'
-import SbcHeader from '/src/components/SbcHeader.vue'
-import SbcLoader from '/src/components/SbcLoader.vue'
+import SbcFooter from '@sbc/components/SbcFooter.vue'
+import SbcHeader from '@sbc/components/SbcHeader.vue'
+import SbcLoader from '@sbc/components/SbcLoader.vue'
 import { LDFlags, Pages, SessionStorageKeys } from '@sbc/util/constants'
-import LaunchDarklyService from '../src/services/launchdarkly.services'
+import LaunchDarklyService from '@sbc/services/launchdarkly.services'
 import { useAccountStore, useAuthStore } from '@sbc/store'
 
 const accountStore = useAccountStore()
@@ -144,7 +144,7 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
-@import "../src/assets/scss/base.scss";
+@import "@sbc/assets/scss/base.scss";
 
 #nav {
   padding: 5px;

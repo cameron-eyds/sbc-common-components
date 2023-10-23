@@ -4,11 +4,11 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Role, LoginSource, Pages } from '../../src/util/constants'
-import { KCUserProfile } from '../../src/models/KCUserProfile'
+import { Role, LoginSource, Pages } from '@sbc/util/constants'
+import { KCUserProfile } from '@sbc/models/KCUserProfile'
 import LoadingScreen from './LoadingScreen.vue'
-import KeyCloakService from '../../src/services/keycloak.services'
-import { useNavigation } from '../../src/composables'
+import KeyCloakService from '@sbc/services/keycloak.services'
+import { useNavigation } from '@sbc/composables'
 import { useAccountStore } from '@sbc/store/account'
 
 const isLoading = ref(true)
