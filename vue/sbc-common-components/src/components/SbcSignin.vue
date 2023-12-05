@@ -36,20 +36,19 @@ kcInit
       // Set values to session storage
       await KeyCloakService.initSession()
       await accountStore.loadUserInfo()
-      const userInfo = accountStore.currentUser as KCUserProfile
+      const userInfo = accountStore.state.currentUser as KCUserProfile
       await accountStore.updateUserProfile()
       await accountStore.syncAccount()
       // if not from the sbc-auth, do the checks and redirect to sbc-auth
       if (!props.inAuth) {
         // redirect to create account page if the user has no 'account holder' role
         const isRedirectToCreateAccount =
-          userInfo.roles.includes(Role.PublicUser) &&
-          !userInfo.roles.includes(Role.AccountHolder)
-        await accountStore.getCurrentUserProfile(props.inAuth)
-        const currentUser = accountStore.currentUser
+              userInfo.roles.includes(Role.PublicUser) &&
+              !userInfo.roles.includes(Role.AccountHolder)
+        const userProfile = await accountStore.getCurrentUserProfile(props.inAuth)
         if (
           userInfo?.loginSource !== LoginSource.IDIR &&
-          !currentUser?.userTerms?.isTermsOfUseAccepted
+          !userProfile?.userTerms?.isTermsOfUseAccepted
         ) {
           console.log('[SignIn.vue]Redirecting. TOS not accepted')
           redirectToPath(props.inAuth, Pages.USER_PROFILE_TERMS)

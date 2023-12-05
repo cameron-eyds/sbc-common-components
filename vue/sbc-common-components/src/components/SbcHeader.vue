@@ -72,7 +72,7 @@
                 <v-menu
                   v-if="!isAuthenticated && showLoginMenu"
                   fixed
-                  location="left"
+                  location="bottom right"
                   width="330"
                   transition="slide-y-transition"
                   attach="#appHeader"
@@ -171,7 +171,7 @@
                 <!-- Account -->
                 <v-menu
                   v-if="isAuthenticated"
-                  location="left"
+                  location="bottom right"
                   transition="slide-y-transition"
                   attach="#appHeader"
                 >

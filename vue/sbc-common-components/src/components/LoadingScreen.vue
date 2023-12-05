@@ -7,8 +7,8 @@
       >
         <v-progress-circular
           class="v-loader"
-          size="50"
-          width="5"
+          size="30"
+          color="primary"
           :indeterminate="props.isLoading"
         />
       </div>
