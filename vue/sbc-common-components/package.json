@@ -1,6 +1,6 @@
 {
   "name": "sbc-common-components",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "private": false,
   "description": "Common Vue Components to be used across BC Registries and Online Services.",
   "license": "Apache-2.0",
@@ -22,7 +22,7 @@
   "dependencies": {
     "@mdi/font": "^4.5.95",
     "@vue/compiler-dom": "^3.2.45",
-    "axios": "^0.26.1",
+    "axios": "^1.6.2",
     "clickout-event": "^1.1.2",
     "country-list": "^2.2.0",
     "keycloak-js": "^9.0.3",
